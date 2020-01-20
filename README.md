@@ -1,12 +1,11 @@
 # Freeciv_SoW
  Contains all files required to play Freeciv's Son of War ruleset.
-
-___________                            .__          _________              
-\_   _____/______   ____   ____   ____ |__|__  __  /   _____/ ______  _  __
- |    __) \_  __ \_/ __ \_/ __ \_/ ___\|  \  \/ /  \_____  \ /  _ \ \/ \/ /
- |     \   |  | \/\  ___/\  ___/\  \___|  |\   /   /        (  <_> )     / 
- \___  /   |__|    \___  >\___  >\___  >__| \_/   /_______  /\____/ \/\_/  
-     \/                \/     \/     \/                   \/               
+//  ___________                            .__          _________              
+//  \_   _____/______   ____   ____   ____ |__|__  __  /   _____/ ______  _  __
+//   |    __) \_  __ \_/ __ \_/ __ \_/ ___\|  \  \/ /  \_____  \ /  _ \ \/ \/ /
+//   |     \   |  | \/\  ___/\  ___/\  \___|  |\   /   /        (  <_> )     / 
+//   \___  /   |__|    \___  >\___  >\___  >__| \_/   /_______  /\____/ \/\_/  
+//       \/                \/     \/     \/                   \/               
 - A fantasy ruleset based on the fantasy world of Son of War. 
 - Contains all the default contents of the 'Experimental' ruleset, which incorporates features from Civ2 and Civ3.
 - There are plenty of dangers worth mentioning for even the most experienced players. Wild beasts, bandits, and even feral monsters lurk in hiding, prepared to cast down any unsuspecting nations.
