@@ -127,7 +127,7 @@ _("\
 [government_tribal]
 
 name        = _("Tribal")
-; No reqs
+;no reqs
 graphic     = "gov.tribal"
 graphic_alt = "s.tax_luxury"
 ai_better   = "Republic"
@@ -166,7 +166,7 @@ _("\
 [government_despotism]
 
 name        = _("Despotism")
-; No reqs
+;no reqs
 graphic     = "gov.despotism"
 graphic_alt = "-"
 ai_better   = "Monarchy"
@@ -468,6 +468,33 @@ _("\
  by 100%.\
 * Population pollution is increased by 250%.\
 * Prevents taxing of citizens.\
+")
+
+[multipliers]
+
+[multiplier_quarantine]
+name = _("Quarantine")
+default = 0 
+start = -5
+stop = 5
+step = 1
+offset = 0
+factor = 100 
+helptext =_("\
+Quarantine increases health but decreases production.\
+")
+
+[multiplier_public_arcana]
+name = _("Public Arcana")
+default = 0 
+start = -5
+stop = 5
+step = 1
+offset = 0
+factor = 100 
+helptext =_("\
+Giving the public greater access to magic increases the impact of magical\
+ technologies, but also increases the risk of revolt.\
 ")
 
 ; /* <-- avoid gettext warnings

@@ -31,6 +31,23 @@ options="+Freeciv-2.6-ruleset"
 ; Effects for nations are in separate file
 *include "sow/nation_effects.ruleset"
 
+; 
+[effect_policy_quarantine_1]
+type    = "Health_Pct"
+value   = 5
+multiplier = "Quarantine"
+reqs    =
+    { "type", "name", "range"
+    }
+
+[effect_policy_quarantine_2]
+type    = "Output_Bonus"
+value   = -0.1
+multiplier = "Quarantine"
+reqs    =
+    { "type", "name", "range"
+    }
+
 ; "Away" "Novice" "Easy" "Normal" "Hard" "Cheating" "Experimental"
 [effect_ai_cheat_food]
 type    = "Upkeep_Factor"
@@ -182,6 +199,7 @@ value   = 10
 reqs    =
     { "type", "name", "range", "present"
       "NationGroup", "Barbarian", "Player", TRUE
+	  "Nation", "Beast", "Player", FALSE
       "Age", "5", "Local", TRUE
       "CityTile", "Center", "Local", FALSE
     }
@@ -3070,8 +3088,9 @@ reqs    =
 type    = "Output_Bonus"
 value   = 100
 reqs    =
-    { "type", "name", "range"
-      "Building", "Temple Desolus", "Player"
+    { "type", "name", "range", "present"
+      "Building", "Temple Desolus", "Player", TRUE
+	  "OutputType", "Science", "Local", FALSE
     }
 
 [effect_eye_of_the_gods_1]
@@ -3080,6 +3099,7 @@ value   = 100
 reqs    =
     { "type", "name", "range"
       "Building", "Eye Of The Gods", "Player"
+	  "OutputType", "Science", "Local", FALSE
     }
 	
 [effect_eye_of_the_gods_2]
@@ -3092,7 +3112,7 @@ reqs    =
 
 [effect_eye_of_the_gods_3]
 type    = "Defend_Bonus"
-value   = 5
+value   = 500
 reqs    =
     { "type", "name", "range"
       "Building", "Eye Of The Gods", "Player"
@@ -3478,6 +3498,28 @@ reqs    =
 [effect_magical_production]
 type    = "Output_Bonus"
 value   = 5
+reqs    =
+    { "type", "name", "range", "present"
+      "Tech", "Magic", "Player", TRUE
+	  "OutputType", "Science", "Local", FALSE
+    }
+	
+; Free Magic further increases production
+[effect_magical_production_free]
+type    = "Output_Bonus"
+value   = 5
+multiplier = "Public Arcana"
+reqs    =
+    { "type", "name", "range", "present"
+      "Tech", "Magic", "Player", TRUE
+	  "OutputType", "Science", "Local", FALSE
+    }
+
+; Free Magic increases waste by distance
+[effect_magical_waste_free]
+type    = "Output_Waste_By_Distance"
+value   = 1
+multiplier = "Public Arcana"
 reqs    =
     { "type", "name", "range", "present"
       "Tech", "Magic", "Player", TRUE
@@ -3965,11 +4007,19 @@ reqs    =
 ; Zegrek Garrisons inspire Partisan units.
 [effect_zegrek_garrison_inspire_partisans]
 type    = "Inspire_Partisans"
-value   = 1
+value   = 3
 reqs   =
     { "type", "name", "range", "present"
       "Building", "Zegrek Garrison", "City", TRUE
     }
 	
-	
+; Garrisons inspire Partisan units.
+[effect_garrison_inspire_partisans]
+type    = "Inspire_Partisans"
+value   = 1
+reqs   =
+    { "type", "name", "range", "present"
+      "Building", "Garrison", "City", TRUE
+    }
+
 ; Add nothing below this line.

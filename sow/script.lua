@@ -48,6 +48,18 @@ The Aetherians form a balanced nation\
  \n*Tip: Try to keep your citizens as happy as\
  possible. This will ensure maximum growth.\
 "
+
+messages["Atlantean"] = "\
+The Atlanteans form a military-oriented nation\
+ that can expand rapidly due to its ability to\
+ settle on ocean tiles. Thus, the nation can expand\
+ to the oceans to avoid conflict with the other nations,\
+ provided they haven't unlocked any naval units.\
+ \n*Tip: The Atlanteans have access to the special\
+ wonder 'Temple Aquae', which, when built, gives them\
+ a free 'Leviathan' unit at the city where it was built.\
+"
+
 messages["Mesyptian"] = "\
 The Mesyptians form a construction-oriented nation\
  designed to build wonders at maximum efficiency.\
@@ -55,11 +67,14 @@ The Mesyptians form a construction-oriented nation\
  wonders being built, and they start with the\
  masonry technology, allowing them to build\
  the Great Wonder 'Nephaliths' straight off the bat.\
+ Additionally, the Mesyptians ignore Improvement upkeep\
+ for Improvements with an upkeep cost of 1 or less.\
  \n*Tip: Slave units will not retaliate if attacked,\
  meaning that they can be captured despite their\
  conventional equivalents lacking such a weakness.\
- Be careful!\
+ Keep them guarded at all costs!\
 "
+
 messages["Skyfolk"] = "\
 The Skyfolk are a military-oriented nation\
  that is especially useful for new players\
@@ -73,6 +88,7 @@ The Skyfolk are a military-oriented nation\
  per turn instead of the standard 10. Use this to\
  your advantage when fighting a war!\
 "
+
 messages["Wasteraiders"] = "\
 The Wasteraiders form a military-oriented nation\
  that is most useful to experienced players due to\
@@ -86,12 +102,17 @@ The Wasteraiders form a military-oriented nation\
  HP-draining effects of those areas. This allows them\
  to safely travel where others cannot.\
 "
+
 messages["Kth'ii"] = "\
 The Kth'ii form a military-oriented nation\
  that is distinctly known for its cavalry.\
  The nation starts with the 'Animal Husbandry'\
  technology, allowing it to build many animal units\
- right off the bat.\
+ right off the bat. After building their signature\
+ building 'Kth'ii Bestiary', they can produce their\
+ signature unit 'Kth'ii Riders', provided they have\
+ unlocked the Pyroscorpis unit. This unit has incredibly\
+ high base stats, making it a top-pick cavalry unit.\
  \n*Tip: The Kth'ii are especially effective\
  in Lava terrain, where they are immune to the\
  HP-draining effects of those areas. This allows them\
@@ -113,11 +134,26 @@ The Imperians form an expansion-oriented nation\
  that is best suited to rapidly settling as much\
  terrain as possible. There is no empire size penalty\
  for them, and their cities can grow up to two sizes\
- larger than normal. This makes them well-suited for\
+ larger than normal. This makes them perfect for\
  colonization of all types.\
  \n*Tip: The Imperians start with the 'Despotism' government,\
  negating the need to start a revolution should you decide to\
  be a dictator.\
+"
+
+messages["Zhinese"] = "\
+The Zhinese form a construction-oriented nation\
+ that is best suited to expanding its individual\
+ cities rather than building new ones, as they\
+ have an increased shield output. They start with\
+ the tech 'Masonry', allowing them to build the wonder\
+ 'Worldspine Wall' right off the bat. This wonder provides\
+ unparalleled benefits to the city it is built in, further\
+ increasing the benefits of focusing on settling less and\
+ building more.\
+ \n*Tip: The 'Masonry' tech also gives access to the wonder\
+ 'Nephaliths', which can be built first to increase the speed\
+ at which the 'Worldspine Wall' is constructed, if necessary.\
 "
 
 messages["Rhonan"] = "\
@@ -126,9 +162,18 @@ The Rhonans form a balanced nation that is best suited\
  with the technologies 'Monarchy' and 'The Republic'.\
  This allows them to gain an early-game edge by choosing\
  the government that best suits their needs.\
- \n*Tip: The Imperians start with the 'Monarchy' government,\
+ \n*Tip: The Rhonans start with the 'Monarchy' government,\
  negating the need to start a revolution should you decide to\
  be a monarch.\
+"
+
+messages["Jharappe"] = "\
+The Jharappe form a balanced nation that is best suited\
+ for all purposes. In particular, the nation starts off\
+ with all of the first-tier technologies, giving it a\
+ head-start at research.\
+ \n*Tip: The Jharappe have no single playstyle,\
+ so feel free to research whatever you want!\
 "
 
 messages["Neph"] = "\
@@ -139,8 +184,7 @@ The Neph form a balanced nation that is best suited\
  it necessary. This is especially useful once multiple governments\
  have been unlocked.\
  \n*Tip: When Neph cities are captured, they inspire partisans to\
- defend them, provided the requirements for the 'Partisan' unit are met.\
- Use this to your advantage when fighting a war.\
+ defend them. Use this to your advantage when fighting a war.\
 "
 
 messages["Zegrek"] = "\
@@ -411,8 +455,8 @@ function CreateBeastUnits(tile)
 	if unitname ~= nil then
 		unittype = find.unit_type(unitname)
 	end
-	local unit = edit.create_unit(beast, tile, unittype, 0, 0)
-	--local unit = edit.create_unit(beast, tile, unittype, 0, nil, 0)
+	--local unit = edit.create_unit(beast, tile, unittype, 0, 0)
+	local unit = edit.create_unit(beast, tile, unittype, 0, nil, 0)
 end
 
 -- Add random labels to the map.

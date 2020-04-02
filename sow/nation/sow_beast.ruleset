@@ -1,7 +1,5 @@
 [nation_sow_beast]
 
-translation_domain="freeciv"
-
 name=_("Beast")
 plural=_("?plural:Beasts")
 groups="Core", "Barbarian"

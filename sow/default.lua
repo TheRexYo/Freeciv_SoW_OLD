@@ -198,26 +198,35 @@ signal.connect("hut_enter", "_deflua_hut_enter_callback")
 function GetPartisanUnit(player)
 	--TODO: Detect if player has technologies and add the proper units.
 	local unit = find.role_unit_type("Partisan", player)
-	return unit
+	if unit ~= nil then
+		return unit
+	end
+	return nil
 end
 
 function place_advanced_partisans(city, loser, count, radius)
+	local units = {}
 	for c=1,count do
 		local unit = GetPartisanUnit(loser)
-		local tiles = city.tile:square_iterate(radius)
-		local validtiles = {}
-		for tile in tiles do
-			if unit:can_exist_at_tile(tile) then
-				table.insert(validtiles, tile)
+		if unit ~= nil then
+			local tiles = city.tile:square_iterate(radius)
+			local validtiles = {}
+			for tile in tiles do
+				if unit:can_exist_at_tile(tile) then
+					table.insert(validtiles, tile)
+				end
+			end
+			if #validtiles >= 1 then
+				local location = validtiles[math.random(1, #validtiles)]
+				local createdunit = edit.create_unit(loser, location, unit, 0, city, 0)
+				table.insert(units, createdunit)
 			end
 		end
-		if #validtiles < 1 then
-			return false
-		end
-		local location = validtiles[math.random(#validtiles)]
-		edit.create_unit(loser, location, unit, 0, city, 0)
+	end
+	if #units > 0 then
 		return true
 	end
+	return false
 end
 
 function special_partisans_callback(city, loser, winner, reason)
@@ -226,11 +235,12 @@ function special_partisans_callback(city, loser, winner, reason)
 		return
 	end
 
-	--local partisans = random(0, 1 + (city.size + 1) / 2) + 1
-	--if partisans > 8 then
-	--	partisans = 8
-	--end
-	local success = place_advanced_partisans(city, loser, partisans, city:map_sq_radius())
+	local sizebonus = random(0, 1 + (city.size + 1) / 2) + 1
+	if sizebonus > 8 then
+		sizebonus = 8
+	end
+	local count = partisans + sizebonus
+	local success = place_advanced_partisans(city, loser, count, city:map_sq_radius())
 	if success == true then
 		notify.event(loser, city.tile, E.CITY_LOST,
 			_("The loss of %s has inspired partisans!"), city.name)
@@ -268,7 +278,7 @@ function place_monsters(city)
 		if #validtiles < 1 then
 			return false
 		end
-		local location = validtiles[math.random(#validtiles)]
+		local location = validtiles[math.random(1,math.max(1, #validtiles))]
 		edit.create_unit(beast, location, unit, 0, nil, 0)
 		return true
 	end

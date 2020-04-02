@@ -531,8 +531,9 @@ veteran_move_bonus = 0
 roles         = "CitiesStartUnit"
 helptext      = _("\
 Pioneers are an advanced form of settlers that can\
- domesticate wildlife and ignore terrain penalties.\
- They can also defend themselves, making them more\
+ convert wildlife units to your side. They also possess\
+ the ability to ignore terrain movement penalties.\
+ Additionally, they can defend themselves, making them more\
  easy to manage in hostile territory. Finally, they\
  are faster than the standard settlers.\
 ")
@@ -560,7 +561,7 @@ transport_cap = 0
 fuel          = 0
 uk_happy      = 0
 uk_shield     = 0
-uk_food       = 1
+uk_food       = 2
 uk_gold       = 0
 flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "AddToCity", "Capturable"
 ; No veteran levels (level name is never displayed)
@@ -571,13 +572,14 @@ veteran_power_fact = 100
 veteran_move_bonus = 0
 roles         = "Settlers"
 helptext      = _("\
-Migrants can be used to transfer population to other cities, but \
-may not found new cities. They can also perform some of the same \
-terrain alterations as Workers (but cannot build airstrips, \
-airbases, or buoys).\
+Migrants can be used to transfer population to other cities, but\
+ may not found new cities. They can also perform some of the same\
+ terrain alterations as Workers (but cannot build airstrips,\
+ airbases, or buoys).\
 "), _("\
-TIP: Migrants can be a good alternative to Workers in overpopulated \
-cities, as they benefit from free food upkeep.\
+TIP: Migrants can be a cheap alternative to Workers\
+ (especially in overpopulated cities), as they lack\
+ the latter's gold upkeep.\
 ")
 
 [unit_worker]
@@ -602,9 +604,9 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
-uk_shield     = 1
+uk_shield     = 0
 uk_food       = 0
-uk_gold       = 1
+uk_gold       = 2
 flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "Airbase"
 ; No veteran levels (level name is never displayed)
 veteran_names = _("green")
@@ -644,8 +646,8 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
-uk_shield     = 1
-uk_food       = 0
+uk_shield     = 0
+uk_food       = 1
 uk_gold       = 0
 flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "Airbase", "HelpWonder", "Capturable"
 ; No veteran levels (level name is never displayed)
@@ -667,6 +669,99 @@ Mesyptian Slaves can aid in the construction of wonders,\
 "), _("\
 Mesyptian Slaves can be captured by enemies,\
  unlike normal workers.\
+")
+
+[unit_cattle]
+name          = _("Cattle")
+class         = "Land"
+tech_req      = "Animal Husbandry"
+obsolete_by   = "Engineers"
+graphic       = "u.horsemen"
+graphic_alt   = "u.generic"
+sound_move    = "m_horsemen"
+sound_move_alt = "m_generic"
+sound_fight   = "f_horsemen"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 2
+uk_gold       = 0
+flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC"
+veteran_names = _("untrained"), _("trained"), _("hardy"), _("reliable")
+veteran_raise_chance      = 25, 17, 10, 0
+veteran_work_raise_chance = 3, 2, 1, 0
+veteran_power_fact        = 100, 125, 150, 175
+veteran_move_bonus        = 0, 0, 1, 1
+roles         = "Settlers", "WorkerStartUnit", "Hut"
+helptext      = _("\
+Cattle are beasts of burden well suited\
+ for harder tasks than the average man.\
+ They can also grow experienced, allowing them\
+ to surpass the worker in terms of efficiency.\
+ They also lack a gold upkeep, though they do\
+ require food to maintain. Unfortunately, cattle\
+ aren't very smart, so they can't build airstrips,\
+ airbases, and buoys like normal workers can, even\
+ with the help of their human herders.\
+")
+
+
+[unit_mesyptian_cattle]
+name          = _("Mesyptian Cattle")
+class         = "Land"
+tech_req      = "Animal Husbandry"
+impr_req      = "Mesyptian Slave Hut"
+obsolete_by   = "Engineers"
+graphic       = "u.horsemen"
+graphic_alt   = "u.generic"
+sound_move    = "m_horsemen"
+sound_move_alt = "m_generic"
+sound_fight   = "f_horsemen"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 0
+flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "HelpWonder", "Capturable"
+veteran_names = _("untrained"), _("trained"), _("hardy"), _("reliable")
+veteran_raise_chance      = 25, 17, 10, 0
+veteran_work_raise_chance = 3, 2, 1, 0
+veteran_power_fact        = 100, 125, 150, 175
+veteran_move_bonus        = 0, 0, 1, 1
+roles         = "Settlers", "WorkerStartUnit"
+helptext      = _("\
+Mesyptian cattle are stockier\
+ versions of the normal cattle\
+ bred by slaves to aid in building.\
+ They are capable of assisting in the\
+ production of wonders, just like their\
+ enslaved masters. Due to their status,\
+ the cows are bred to survive unfed for\
+ long periods of time, negating all food\
+ upkeeps. Unfortunately, due to this lack\
+ of being fed, Mesyptian Cattle are unlikely\
+ to retaliate if attacked, making them easy\
+ to capture.\
 ")
 
 [unit_engineers]
@@ -779,8 +874,9 @@ bonuses       =
 flags         = "Capturer", "Military"
 roles         = "DefendOk", "DefendOkStartUnit", "BarbarianBuild", "FirstBuild", "Partisan", "Hut"
 helptext      = _("\
-This unit may be built from the start of the game.  It is the\
- weakest offensive unit.\
+This unit may be built from the start of the game. It is the\
+ weakest offensive military unit. Like most melee units, it has\
+ an offensive bonus against units that are weak in melee.\
 ")
 
 [unit_spearmen]
@@ -815,8 +911,9 @@ bonuses       =
 flags         = "Capturer", "Military"
 roles         = "DefendGood", "DefendGoodStartUnit", "BarbarianBuild", "FirstBuild", "Partisan", "Hut"
 helptext      = _("\
-This unit may be built from the start of the game.  It is the\
- weakest defensive unit.\
+This unit may be built from the start of the game. It is the\
+ weakest defensive military unit. Like most polearm units, it\
+ possesses a defensive bonus against Mounted units.\
 ")
 
 [unit_phalanx]
@@ -850,7 +947,7 @@ bonuses       =
 	 "WeakMelee", "DefenseDivider", 1
    }
 flags         = "Capturer", "Military"
-roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "Partisan", "Hut", "BarbarianBuildTech"
+roles         = "DefendOk", "DefendOkStartUnit", "FirstBuild", "Partisan", "Hut", "BarbarianBuildTech"
 helptext      = _("\
 The Phalanx is armored infantry, suitable for defending your cities\
  and capturing your enemies'.\
@@ -888,7 +985,7 @@ bonuses       =
 	 "WeakMelee", "DefenseDivider", 1
    }
 flags         = "Capturer", "IgTer", "Military"
-roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "Partisan"
+roles         = "DefendOk", "FirstBuild", "Partisan"
 helptext      = _("\
 Trained to travel through dense forests,\
  Arcanian Phalanxes have the ability to\
@@ -926,7 +1023,7 @@ bonuses       =
      "Mounted", "DefenseMultiplier", 1
    }
 flags         = "Capturer", "Military"
-roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "Partisan"
+roles         = "DefendGood", "FirstBuild", "Partisan"
 helptext      = _("\
 Zegrek Phalanxes are more advanced then their standard counterparts,\
  with enhanced defensive prowess. However, they lack the melee\
@@ -937,7 +1034,7 @@ Zegrek Phalanxes are more advanced then their standard counterparts,\
 name          = _("Archers")
 class         = "Land"
 tech_req      = "Warrior Code"
-obsolete_by   = "Musketeers"
+obsolete_by   = "Longbowmen"
 graphic       = "u.archers"
 graphic_alt   = "u.generic"
 sound_move    = "m_archers"
@@ -963,6 +1060,38 @@ roles         = "DefendOk", "DefendOkStartUnit", "BarbarianBuild", "Hut", "Parti
 helptext      = _("\
 Archers fight with bows and arrows and have a good offensive\
  value.\
+")
+
+[unit_longbowmen]
+name          = _("Longbowmen")
+class         = "Land"
+tech_req      = "Warrior Code"
+obsolete_by   = "Musketeers"
+graphic       = "u.archers"
+graphic_alt   = "u.generic"
+sound_move    = "m_archers"
+sound_move_alt = "m_generic"
+sound_fight   = "f_archers"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 10
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "Capturer", "WeakMelee", "Military"
+roles         = "DefendOk", "DefendOkStartUnit", "BarbarianBuild", "HutTech", "Partisan"
+helptext      = _("\
+Longbowmen fight with longbows and larger arrows,\
+ giving them a higher defensive value than archers.\
 ")
 
 [unit_legion]
@@ -1005,6 +1134,7 @@ Legions are heavily armed and well disciplined infantry\
 name          = _("Rhonan Legion")
 class         = "Land"
 tech_req      = "Iron Working"
+impr_req      = "Rhonan Barracks"
 obsolete_by   = "Musketeers"
 graphic       = "u.legion"
 graphic_alt   = "u.generic"
@@ -1142,7 +1272,7 @@ bonuses       =
    { "flag", "type", "value"
      "Mounted", "DefenseMultiplier", 1
    }
-roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "Partisan", "HutTech"
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "Partisan", "HutTech", "BarbarianBuildTech"
 helptext      = _("\
 Equipped with long pikes, Pikemen replaces Phalanx\
  as the preferred city defender.\
@@ -1161,8 +1291,8 @@ sound_fight   = "f_musketeers"
 sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
-attack        = 3
-defense       = 3
+attack        = 4
+defense       = 4
 hitpoints     = 20
 firepower     = 1
 move_rate     = 1
@@ -1196,7 +1326,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 50
 pop_cost      = 0
 attack        = 5
-defense       = 4
+defense       = 6
 hitpoints     = 20
 firepower     = 1
 move_rate     = 1
@@ -1208,7 +1338,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Marines", "Capturer", "WeakMelee", "Military"
-roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "Partisan"
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "Partisan", "BarbarianBuildTech"
 helptext      = _("\
 Riflemen are World War-era infantry, very good\
  at defending your cities.\
@@ -1227,8 +1357,8 @@ sound_fight   = "f_alpine_troops"
 sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
-attack        = 7
-defense       = 4
+attack        = 3
+defense       = 8
 hitpoints     = 20
 firepower     = 1
 move_rate     = 1
@@ -1242,7 +1372,7 @@ uk_gold       = 1
 embarks       = "Helicopter"
 disembarks    = "Helicopter"
 flags         = "IgTer", "Capturer", "Military"
-roles         = "DefendOk", "DefendOkStartUnit", "Partisan"
+roles         = "DefendOk", "DefendOkStartUnit", "Partisan", "BarbarianBuildTech"
 helptext      = _("\
 Alpine Troops are highly mobile units as well as\
  excellent defenders.\
@@ -1261,8 +1391,8 @@ sound_fight   = "f_partisan"
 sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
-attack        = 4
-defense       = 5
+attack        = 5
+defense       = 6
 hitpoints     = 20
 firepower     = 1
 move_rate     = 1
@@ -1276,18 +1406,10 @@ uk_gold       = 1
 embarks       = "Helicopter"
 disembarks    = "Helicopter"
 flags         = "IgTer", "IgZOC", "Capturer", "Military"
-roles         = "DefendGood", "DefendGoodStartUnit", "Partisan", "BarbarianTech"
+roles         = "DefendGood", "DefendGoodStartUnit", "Partisan", "BarbarianTech", "BarbarianBuildTech"
 helptext      = _("\
 Partisans are guerilla fighters who are experts\
  at using the terrain to their advantage.\
-"), _("\
-A number of Partisans are granted free when an enemy conquers your\
- city -- they automatically assume defensive positions in the\
- surrounding countryside -- but only under these conditions:\n\
- - Guerilla Warfare must be known by at least one player.\n\
- - At least three quarters of the citizens must have your nationality.\n\
- - You must know about Communism and Gunpowder.\n\
- - You must run either a Democracy or a Communist government.\
 ")
 
 [unit_fanatics]
@@ -1415,7 +1537,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
 attack        = 8
-defense       = 5
+defense       = 6
 hitpoints     = 20
 firepower     = 1
 move_rate     = 1
@@ -1429,7 +1551,7 @@ uk_gold       = 1
 embarks       = "Helicopter"
 disembarks    = "Helicopter"
 flags         = "Marines", "Capturer", "Military"
-roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "BarbarianSeaTech"
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "BarbarianSeaTech", "BarbarianBuildTech"
 helptext      = _("\
 Marines are infantry who are experts at marine warfare.\
 ")
@@ -1447,7 +1569,7 @@ sound_fight   = "f_paratroopers"
 sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
-attack        = 6
+attack        = 8
 defense       = 4
 hitpoints     = 20
 firepower     = 1
@@ -1462,7 +1584,7 @@ uk_gold       = 1
 embarks       = "Helicopter"
 disembarks    = "Helicopter"
 flags         = "Paratroopers", "Capturer", "Military"
-roles         = "DefendOk", "DefendOkStartUnit"
+roles         = "DefendOk", "DefendOkStartUnit", "BarbarianBuildTech"
 helptext      = _("\
 Paratroopers are experts at airborne attacks. From a friendly city, \
 airbase, or airstrip, Paratroopers who have not expended any \
@@ -1488,8 +1610,8 @@ sound_fight   = "f_mech_inf"
 sound_fight_alt = "f_generic"
 build_cost    = 70
 pop_cost      = 0
-attack        = 6
-defense       = 6
+attack        = 10
+defense       = 10
 hitpoints     = 30
 firepower     = 1
 move_rate     = 3
@@ -1501,13 +1623,13 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Military"
-roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild", "BarbarianBuildTech"
 helptext      = _("\
-The Mechanized Infantry has the strongest inherent defensive strength \
-of any land unit, and is very fast on roads and easy terrain, but it is \
-hindered rather than helped by rough terrain (it cannot move into \
-mountains, swamps, or jungles), and it is only available near the end \
-of the technology tree.\
+The Mechanized Infantry has the strongest inherent defensive strength\
+ of any military land unit, and is very fast on roads and easy terrain,\
+ but it is hindered rather than helped by rough terrain (it cannot move\
+ into mountains, swamps, or jungles), and it is only available near the\
+ end of the technology tree.\
 ")
 
 [unit_horsemen]
@@ -1536,7 +1658,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Capturer", "Mounted", "Military"
-roles         = "AttackFastStartUnit", "Hut", "Barbarian", "Hunter"
+roles         = "AttackFastStartUnit", "Hut", "Barbarian", "Hunter", "BarbarianBuild"
 helptext      = _("\
 Horsemen are mounted warriors and an early\
  shock-troop that can penetrate deep into\
@@ -1569,7 +1691,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Capturer", "Mounted", "Military"
-roles         = "AttackFastStartUnit", "HutTech"
+roles         = "AttackFastStartUnit", "HutTech", "BarbarianTech", "BarbarianBuildTech"
 helptext      = _("\
 Chariots are horse-pulled war wagons. They have a stronger attack than \
 Horsemen, but their speed comes at a cost: they are more expensive \
@@ -1577,99 +1699,6 @@ to build, they cannot take advantage of terrain to defend themselves, \
 they cannot move in rough terrain (mountains, swamps, and jungles) \
 without roads, and they cannot be transported by sea using early ships \
 (Triremes and Caravels).\
-")
-
-[unit_cattle]
-name          = _("Cattle")
-class         = "Land"
-tech_req      = "Animal Husbandry"
-obsolete_by   = "Engineers"
-graphic       = "u.horsemen"
-graphic_alt   = "u.generic"
-sound_move    = "m_horsemen"
-sound_move_alt = "m_generic"
-sound_fight   = "f_horsemen"
-sound_fight_alt = "f_generic"
-build_cost    = 20
-pop_cost      = 0
-attack        = 0
-defense       = 2
-hitpoints     = 10
-firepower     = 1
-move_rate     = 1
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 0
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 0
-flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC"
-veteran_names = _("untrained"), _("trained"), _("hardy"), _("reliable")
-veteran_raise_chance      = 25, 17, 10, 0
-veteran_work_raise_chance = 3, 2, 1, 0
-veteran_power_fact        = 100, 125, 150, 175
-veteran_move_bonus        = 0, 0, 1, 1
-roles         = "Settlers", "WorkerStartUnit", "Hut"
-helptext      = _("\
-Cattle are beasts of burden well suited\
- for harder tasks than the average man.\
- They can also grow experienced, allowing them\
- to surpass the worker in terms of efficiency.\
- Thety also lack a gold upkeep, though they do\
- require food to maintain. Unfortunately, cattle\
- aren't very smart, so they can't build airstrips,\
- airbases, and buoys like normal workers can, even\
- with the help of their human herders.\
-")
-
-
-[unit_mesyptian_cattle]
-name          = _("Mesyptian Cattle")
-class         = "Land"
-tech_req      = "Animal Husbandry"
-impr_req      = "Mesyptian Slave Hut"
-obsolete_by   = "Engineers"
-graphic       = "u.horsemen"
-graphic_alt   = "u.generic"
-sound_move    = "m_horsemen"
-sound_move_alt = "m_generic"
-sound_fight   = "f_horsemen"
-sound_fight_alt = "f_generic"
-build_cost    = 20
-pop_cost      = 0
-attack        = 0
-defense       = 2
-hitpoints     = 10
-firepower     = 1
-move_rate     = 1
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 0
-uk_shield     = 1
-uk_food       = 0
-uk_gold       = 0
-flags         = "Settlers", "Cant_Fortify", "NonMil", "HasNoZOC", "HelpWonder", "Capturable"
-veteran_names = _("untrained"), _("trained"), _("hardy"), _("reliable")
-veteran_raise_chance      = 25, 17, 10, 0
-veteran_work_raise_chance = 3, 2, 1, 0
-veteran_power_fact        = 100, 125, 150, 175
-veteran_move_bonus        = 0, 0, 1, 1
-roles         = "Settlers", "WorkerStartUnit"
-helptext      = _("\
-Mesyptian cattle are stockier\
- versions of the normal cattle\
- bred by slaves to aid in building.\
- They are capable of assisting in the\
- production of wonders, just like their\
- enslaved masters. Due to their status,\
- the cows are bred to survive unfed for\
- long periods of time, negating all food\
- upkeeps. Unfortunately, due to this lack\
- of being fed, Mesyptian Cattle are unlikely\
- to retaliate if attacked, making them easy\
- to capture.\
 ")
 
 [unit_elephants]
@@ -1698,7 +1727,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Capturer", "Beast", "Domesticatable"
-roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter"
+roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter", "BarbarianTech", "BarbarianBuildTech"
 helptext      = _("\
 Elephants are towering animals trained for war that are often used as\
  powerful shock troops.\
@@ -1715,11 +1744,11 @@ sound_move    = "m_elephants"
 sound_move_alt = "m_generic"
 sound_fight   = "f_elephants"
 sound_fight_alt = "f_generic"
-build_cost    = 45
+build_cost    = 60
 pop_cost      = 0
-attack        = 4
-defense       = 3
-hitpoints     = 15
+attack        = 6
+defense       = 4
+hitpoints     = 10
 firepower     = 1
 move_rate     = 2
 vision_radius_sq = 2
@@ -1730,7 +1759,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Capturer", "Beast", "Domesticatable"
-roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter"
+roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter", "BarbarianTech", "BarbarianBuildTech"
 helptext      = _("\
 Mammoths are larger relatives of Elephants that can be trained\
  for use in war.")
@@ -1746,11 +1775,11 @@ sound_move    = "m_elephants"
 sound_move_alt = "m_generic"
 sound_fight   = "f_elephants"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 90
 pop_cost      = 0
-attack        = 6
-defense       = 4
-hitpoints     = 20
+attack        = 9
+defense       = 6
+hitpoints     = 10
 firepower     = 1
 move_rate     = 2
 vision_radius_sq = 2
@@ -1761,7 +1790,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Capturer", "Beast", "NoHome", "Domesticatable"
-roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter"
+roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter", "BarbarianTech", "BarbarianBuildTech"
 helptext      = _("\
 Behemohts are titanic Mammoths with massive tusks and a fearsome\
  temper, even when trained from birth.\
@@ -1857,7 +1886,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Capturer", "Mounted", "Military"
-roles         = "AttackFastStartUnit", "BarbarianBuildTech", "Hunter"
+roles         = "AttackFastStartUnit", "BarbarianBuildTech", "Hunter", "BarbarianBuildTech"
 helptext      = _("\
 Dragoons are mounted warriors carrying early firearms.\
 ")
@@ -1888,7 +1917,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Capturer", "Mounted", "Military"
-roles         = "AttackFastStartUnit", "Hunter"
+roles         = "AttackFastStartUnit", "Hunter", "BarbarianBuildTech"
 helptext      = _("\
 Cavalry are mounted and highly trained soldiers.\
 ")
@@ -1919,13 +1948,13 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "Mounted", "Military"
-roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter"
+roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter", "BarbarianBuildTech"
 helptext      = _("\
-Armors are motorized war wagons that are faster, stronger, and can take \
-more damage than any mounted unit. However, they are less adaptable to \
-very rough terrain (they cannot move into mountains, swamps, or jungles \
-without roads), and unable to use less rough terrain to improve their \
-defense.\
+Armors are motorized war wagons that are faster, stronger, and can take\
+ more damage than any mounted unit. However, they are less adaptable to\
+ very rough terrain (they cannot move into mountains, swamps, or jungles\
+ without roads), and unable to use less rough terrain to improve their\
+ defense.\
 ")
 
 [unit_catapult]
@@ -1954,7 +1983,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "WeakMelee", "Siege"
-roles         = "AttackStrongStartUnit"
+roles         = "AttackStrongStartUnit", "BarbarianBuildTech"
 helptext      = _("\
 Catapults are large rock-throwing machines of war.\
  They are very strong attackers but equally weak\
@@ -1992,7 +2021,7 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "WeakMelee", "Siege"
-roles         = "AttackStrongStartUnit", "BarbarianTech", "BarbarianBuildTech"
+roles         = "AttackStrongStartUnit", "BarbarianTech", "BarbarianBuildTech", "BarbarianBuildTech"
 helptext      = _("\
 Cannons are large firearms that can fire heavy projectiles over long \
 distances. As with the catapults they replace, they are very strong \
@@ -2026,11 +2055,11 @@ uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
 flags         = "CityBuster", "WeakMelee", "Siege"
-roles         = "AttackStrongStartUnit"
+roles         = "AttackStrongStartUnit", "BarbarianBuildTech"
 helptext      = _("\
-The artillery is an upgraded cannon. As with its predecessors, it is a \
-very strong attacker but equally weak defender and will need an escort \
-to be effective, and has limited mobility.\
+The artillery is an upgraded cannon. As with its predecessors, it is a\
+ very strong attacker but equally weak defender and will need an escort\
+ to be effective, and has limited mobility.\
 ")
 
 [unit_howitzer]
@@ -2047,7 +2076,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 80
 pop_cost      = 0
 attack        = 12
-defense       = 2
+defense       = 4
 hitpoints     = 30
 firepower     = 1
 move_rate     = 1
@@ -2058,12 +2087,12 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
-flags         = "CityBuster", "Siege"
-roles         = "AttackStrongStartUnit"
+flags         = "CityBuster", "WeakMelee", "Siege"
+roles         = "AttackStrongStartUnit", "BarbarianBuildTech"
 helptext      = _("\
-Howitzers are upgraded artillery with improved defensive as well as \
-offensive capabilities. However, they still have the limited mobility \
-of their predecessors.\
+Howitzers are upgraded artillery with improved defensive as well as\
+ offensive capabilities. However, they still have the limited mobility\
+ of their predecessors.\
 ")
 
 [unit_fighter]
@@ -2077,9 +2106,9 @@ sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 90
 pop_cost      = 0
-attack        = 4
+attack        = 8
 defense       = 4
 hitpoints     = 20
 firepower     = 1
@@ -2115,9 +2144,9 @@ sound_move    = "m_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 100
+build_cost    = 120
 pop_cost      = 0
-attack        = 6
+attack        = 12
 defense       = 2
 hitpoints     = 30
 firepower     = 1
@@ -2201,10 +2230,10 @@ sound_move    = "m_stealth_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_stealth_fighter"
 sound_fight_alt = "f_generic"
-build_cost    = 80
+build_cost    = 100
 pop_cost      = 0
-attack        = 8
-defense       = 8
+attack        = 10
+defense       = 10
 hitpoints     = 20
 firepower     = 1
 move_rate     = 14
@@ -2234,10 +2263,10 @@ sound_move    = "m_stealth_bomber"
 sound_move_alt = "m_generic"
 sound_fight   = "f_stealth_bomber"
 sound_fight_alt = "f_generic"
-build_cost    = 120
+build_cost    = 180
 pop_cost      = 0
-attack        = 9
-defense       = 5
+attack        = 18
+defense       = 9
 hitpoints     = 30
 firepower     = 1
 move_rate     = 12
@@ -2283,7 +2312,7 @@ uk_food       = 1
 uk_gold       = 1
 cargo         = "Land", "Small Land", "Merchant"
 flags         = "BadCityDefender", "HasNoZOC"
-roles         = "Ferryboat", "FerryStartUnit"
+roles         = "Ferryboat", "FerryStartUnit", "BarbarianBoat"
 helptext      = _("\
 The Trireme is your first boat unit. It can act\
  as a transport ship and has rudimentary offensive\
@@ -2666,7 +2695,7 @@ veteran_raise_chance      = 50, 33, 20, 0
 veteran_work_raise_chance = 0, 0, 0, 0
 veteran_power_fact        = 100, 150, 175, 200
 veteran_move_bonus        = 0, 0, 0, 0
-roles         = "Ferryboat", "FerryStartUnit"
+roles         = "Ferryboat", "FerryStartUnit", "BarbarianBoat"
 helptext      = _("\
 The Transport cannot attack on its own but\
  may defend itself when under attack.\
@@ -2794,9 +2823,9 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
-uk_shield     = 1
+uk_shield     = 0
 uk_food       = 0
-uk_gold       = 1
+uk_gold       = 2
 flags         = "Partial_Invis", "Diplomat", "IgZOC", "NonMil", "HasNoZOC"
 veteran_names =
 ; /* TRANS: diplomatic rank. */
@@ -2905,9 +2934,9 @@ vision_radius_sq = 8
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
-uk_shield     = 1
+uk_shield     = 0
 uk_food       = 0
-uk_gold       = 1
+uk_gold       = 2
 flags         = "Partial_Invis", "Diplomat", "IgZOC", "NonMil", "HasNoZOC", "Spy"
 veteran_names =
 ; /* TRANS: Spy veteran level */
@@ -2950,6 +2979,51 @@ A Spy that survives the more aggressive actions (sabotage, theft,\
 "), _("\
 Spies built under Communist or Federation governments will start\
  at the first veteran level (handler).\
+")
+
+[unit_general]
+name          = _("General")
+class         = "Small Land"
+tech_req      = "Tactics"
+obsolete_by   = "None"
+graphic       = "u.spy"
+graphic_alt   = "u.generic"
+sound_move    = "m_spy"
+sound_move_alt = "m_generic"
+sound_fight   = "f_spy"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 2
+flags         = "IgZOC", "NonMil", "HasNoZOC"
+veteran_names =
+; /* TRANS: Spy veteran level */
+  _("Inexperienced"),
+; /* TRANS: Spy veteran level */
+  _("Experienced"),
+; /* TRANS: Spy veteran level */
+  _("Master"),
+; /* TRANS: Spy veteran level */
+  _("Grandmaster")
+veteran_raise_chance = 25, 10, 5, 0
+veteran_work_raise_chance = 0, 0, 0, 0
+veteran_power_fact = 100, 105, 110, 115
+veteran_move_bonus = 0, 1, 2, 3
+roles         = ""
+helptext      = _("\
+A General increases the chance of nearby allies leveling up\
+ in combat.\
 ")
 
 [unit_caravan]
@@ -3054,9 +3128,9 @@ vision_radius_sq = 6
 transport_cap = 0
 fuel          = 0
 uk_happy      = 0
-uk_shield     = 1
+uk_shield     = 0
 uk_food       = 0
-uk_gold       = 1
+uk_gold       = 2
 flags         = "IgTer", "IgZOC", "NonMil", "HasNoZOC", "Cant_Fortify"
 roles         = "Explorer", "ExplorerStartUnit"
 helptext      = _("\
@@ -3214,10 +3288,10 @@ move_rate     = 3
 vision_radius_sq = 6
 transport_cap = 3
 fuel          = 1
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 2
+uk_happy      = 0
+uk_shield     = 2
+uk_food       = 0
+uk_gold       = 1
 cargo         = "Land", "Small Land"
 flags         = "IgZOC", "AirAttacker", "IgTer"
 targets       = "Air", "Helicopter", "Flier"
@@ -3251,10 +3325,10 @@ move_rate     = 4
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
-uk_gold       = 1
+uk_gold       = 0
 flags         = "IgZOC", "AirAttacker", "IgTer", "Beast", "Domesticatable"
 targets       = "Air", "Helicopter", "Flier"
 roles         = "AttackFastStartUnit", "BarbarianBuildTech", "Hunter"
@@ -3357,10 +3431,10 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
-uk_gold       = 1
+uk_gold       = 0
 flags         = "IgZOC", "AirAttacker", "IgTer", "Beast", "Domesticatable"
 targets       = "Air", "Helicopter", "Flier"
 roles         = "AttackFastStartUnit", "BarbarianBuildTech", "Hunter"
@@ -3534,7 +3608,7 @@ sound_fight   = "f_dragoons"
 sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
-attack        = 3
+attack        = 9
 defense       = 3
 hitpoints     = 25
 firepower     = 1
@@ -3582,8 +3656,8 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
+uk_shield     = 2
+uk_food       = 0
 uk_gold       = 1
 flags         = "CityBuster", "OneAttack", "Pyro", "Siege"
 bonuses       =
@@ -3623,8 +3697,8 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
+uk_shield     = 2
+uk_food       = 0
 uk_gold       = 1
 flags         = "OneAttack", "Siege"
 bonuses       =
@@ -3654,7 +3728,7 @@ sound_fight   = "f_artillery"
 sound_fight_alt = "f_generic"
 build_cost    = 180
 pop_cost      = 0
-attack        = 10
+attack        = 55
 defense       = 5
 hitpoints     = 30
 firepower     = 5
@@ -3663,8 +3737,8 @@ vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
 uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
+uk_shield     = 2
+uk_food       = 0
 uk_gold       = 1
 flags         = "OneAttack", "Siege"
 targets       = "Air", "Helicopter", "Flier"
@@ -3695,18 +3769,18 @@ sound_fight   = "f_horsemen"
 sound_fight_alt = "f_generic"
 build_cost    = 10
 pop_cost      = 0
-attack        = 5
-defense       = 1
+attack        = 2
+defense       = 0
 hitpoints     = 5
 firepower     = 1
 move_rate     = 2
 vision_radius_sq = 4
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
-uk_gold       = 1
+uk_gold       = 0
 flags         = "Beast", "Domesticatable"
 roles         = "AttackFastStartUnit", "Hunter"
 helptext      = _("\
@@ -3770,10 +3844,10 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
-uk_gold       = 1
+uk_gold       = 0
 flags         = "Beast", "LavaImmune", "Domesticatable"
 bonuses       =
    { "flag", "type", "value"
@@ -3781,10 +3855,10 @@ bonuses       =
    }
 roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter"
 helptext      = _("\
-Pyroscorpis are giant scorpions with an\
- innate resistance to fire. They also\
- possess a thick exoskeleton that\
- makes attacking them very difficult.\
+Pyroscorpis are horse-sized scorpions\
+ with an innate resistance to fire.\
+ They also possess a thick exoskeleton\
+ that makes attacking them very difficult.\
 ")
 
 [unit_pyroscorpis_riders]
@@ -3809,10 +3883,10 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
-uk_gold       = 1
+uk_gold       = 0
 flags         = "Beast", "Capturer", "LavaImmune"
 bonuses       =
    { "flag", "type", "value"
@@ -3848,10 +3922,10 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
-uk_gold       = 1
+uk_gold       = 0
 flags         = "Beast", "Domesticatable"
 bonuses       =
    { "flag", "type", "value"
@@ -3886,8 +3960,8 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
 uk_gold       = 0
 flags         = "Beast", "Domesticatable"
@@ -3922,8 +3996,8 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
 uk_gold       = 0
 flags         = "Beast", "Domesticatable"
@@ -3957,8 +4031,8 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
 uk_gold       = 0
 flags         = "Beast", "Domesticatable"
@@ -4161,10 +4235,10 @@ sound_move    = "m_archers"
 sound_move_alt = "m_generic"
 sound_fight   = "f_archers"
 sound_fight_alt = "f_generic"
-build_cost    = 70
+build_cost    = 50
 pop_cost      = 0
-attack        = 5
-defense       = 5
+attack        = 3
+defense       = 3
 hitpoints     = 10
 firepower     = 1
 move_rate     = 1
@@ -4192,10 +4266,10 @@ sound_move    = "m_archers"
 sound_move_alt = "m_generic"
 sound_fight   = "f_archers"
 sound_fight_alt = "f_generic"
-build_cost    = 100
+build_cost    = 80
 pop_cost      = 0
-attack        = 8
-defense       = 8
+attack        = 4
+defense       = 4
 hitpoints     = 10
 firepower     = 1
 move_rate     = 1
@@ -4226,10 +4300,10 @@ sound_move    = "m_archers"
 sound_move_alt = "m_generic"
 sound_fight   = "f_archers"
 sound_fight_alt = "f_generic"
-build_cost    = 120
+build_cost    = 90
 pop_cost      = 0
-attack        = 10
-defense       = 8
+attack        = 8
+defense       = 4
 hitpoints     = 10
 firepower     = 1
 move_rate     = 1
@@ -4259,10 +4333,10 @@ sound_move    = "m_archers"
 sound_move_alt = "m_generic"
 sound_fight   = "f_archers"
 sound_fight_alt = "f_generic"
-build_cost    = 120
+build_cost    = 90
 pop_cost      = 0
-attack        = 8
-defense       = 10
+attack        = 4
+defense       = 8
 hitpoints     = 10
 firepower     = 1
 move_rate     = 1
@@ -4294,8 +4368,8 @@ sound_fight   = "f_archers"
 sound_fight_alt = "f_generic"
 build_cost    = 120
 pop_cost      = 0
-attack        = 12
-defense       = 12
+attack        = 9
+defense       = 9
 hitpoints     = 10
 firepower     = 1
 move_rate     = 1
@@ -4324,7 +4398,7 @@ sound_move    = "m_archers"
 sound_move_alt = "m_generic"
 sound_fight   = "f_archers"
 sound_fight_alt = "f_generic"
-build_cost    = 120
+build_cost    = 150
 pop_cost      = 0
 attack        = 15
 defense       = 15
@@ -4376,7 +4450,8 @@ roles         = "AttackStrongStartUnit", "DefendGood"
 helptext      = _("\
 Mages are militarized spellcasters\
  that have high offensive and\
- defensive value.\
+ defensive value compared to their\
+ cost.\
 ")
 
 [unit_pyromancers]
@@ -4410,7 +4485,7 @@ helptext      = _("\
 Pyromancers are potent fire mages\
  that deal high damage, but lack\
  defensive capabilities and deal\
- less damage to unburnable units.\
+ less damage to Unburnable units.\
 ")
 
 [unit_aquamancers]
@@ -4448,7 +4523,7 @@ helptext      = _("\
 Aquamancers are potent water mages\
  that cannot attack but have\
  high defensive value and deal\
- greater damage to pyro units.\
+ greater damage to Pyro units.\
 ")
 
 [unit_saurian]
@@ -4472,10 +4547,10 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 3
+uk_gold       = 0
 flags         = "NoHome", "Beast", "Domesticatable"
 bonuses       =
    { "flag", "type", "value"
@@ -4513,10 +4588,10 @@ move_rate     = 2
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 3
+uk_gold       = 0
 flags         = "NoHome", "Beast", "Domesticatable"
 bonuses       =
    { "flag", "type", "value"
@@ -4551,10 +4626,10 @@ move_rate     = 8
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 1
-uk_gold       = 1
+uk_gold       = 0
 flags         = "NoHome", "Beast", "Domesticatable"
 bonuses       =
    { "flag", "type", "value"
@@ -4591,10 +4666,10 @@ move_rate     = 4
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 3
+uk_gold       = 0
 flags         = "NoHome", "Beast", "Domesticatable"
 bonuses       =
    { "flag", "type", "value"
@@ -4608,7 +4683,6 @@ A Zephyrodon is a nimble saurian\
  down mounted targets and tear them\
  to shreds.\
 ")
-
 
 [unit_giant_worm]
 name          = _("Giant Worm")
@@ -4632,8 +4706,8 @@ move_rate     = 1
 vision_radius_sq = 1
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 2
 uk_gold       = 0
 flags         = "NoHome", "Beast", "Partial_Invis", "Domesticatable"
@@ -4668,18 +4742,18 @@ move_rate     = 1
 vision_radius_sq = 1
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 2
 uk_gold       = 1
 flags         = "Capturer", "Beast", "Mounted", "Partial_Invis"
 targets = "Burrowing"
 roles         = "Hunter"
 helptext      = _("\
-Giant Worms are gigantic predators\
- loosely related to the common earthworm.\
- They wait beneath the ground, springing out\
- at anything oblivious enough to approach.\
+When mounted, Giant Worms benefit from\
+ extra defense and the ability to capture\
+ certain targets rather than outright kill\
+ them due to having an intelligent rider.\
 ")
 
 [unit_deathworm]
@@ -4704,8 +4778,8 @@ move_rate     = 4
 vision_radius_sq = 1
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
+uk_happy      = 0
+uk_shield     = 0
 uk_food       = 4
 uk_gold       = 0
 flags         = "NoHome", "Beast", "Partial_Invis", "Domesticatable"
@@ -4752,7 +4826,7 @@ flags         = "Capturer", "Beast", "Mounted", "Partial_Invis", "Domesticatable
 targets = "Burrowing"
 roles         = "Hunter"
 helptext      = _("\
-When mounted, deathworms benefit from\
+When mounted, Deathworms benefit from\
  extra defense and the ability to capture\
  certain targets rather than outright kill\
  them due to having an intelligent rider.\
@@ -4873,7 +4947,6 @@ Exodii Drones are incredibly efficient spy robots\
  reconaissance.\
 ")
 
-
 [unit_leviathan]
 name          = _("Leviathan")
 class         = "Sea"
@@ -4899,7 +4972,7 @@ uk_happy      = 0
 uk_shield     = 0
 uk_food       = 10
 uk_gold       = 0
-flags         = "Beast", "NoBuild"
+flags         = "Beast", "NoBuild", "Unique"
 targets       = "Air", "Helicopter", "Flier"
 roles         = ""
 helptext      = _("\
@@ -4911,6 +4984,120 @@ Leviathan is a beast spoken of only in legend.\
  its body is so hot that its breath can light the sea\
  aflame. It is a beast that bows to no man, for only the\
  gods can control its anger.\
+")	
+
+[unit_terrasque]
+name          = _("Terrasque")
+class         = "Burrowing"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.dragoons"
+graphic_alt   = "u.generic"
+sound_move    = "m_dragoons"
+sound_move_alt = "m_generic"
+sound_fight   = "f_dragoons"
+sound_fight_alt = "f_generic"
+build_cost    = 0
+pop_cost      = 0
+attack        = 30
+defense       = 90
+hitpoints     = 200
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 10
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 10
+uk_gold       = 0
+flags         = "Beast", "NoBuild", "Unique"
+targets       = "Burrowing"
+roles         = ""
+helptext      = _("\
+The Terrasque is a beast spoken of only in legend.\
+ It is said that this monster is nearly unkillable,\
+ with an outer shell that can resist almost any attack.\
+ Its very presence is enough to cause the sea to fall, and\
+ its bulk is so great that it shifts the continents when it\
+ travels through the earth. It is a beast that bows to no man,\
+ for only the gods can control its anger.\
 ")
-	
+
+[unit_rukh]
+name          = _("Rukh")
+class         = "Flier"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.dragoons"
+graphic_alt   = "u.generic"
+sound_move    = "m_dragoons"
+sound_move_alt = "m_generic"
+sound_fight   = "f_dragoons"
+sound_fight_alt = "f_generic"
+build_cost    = 0
+pop_cost      = 0
+attack        = 75
+defense       = 45
+hitpoints     = 100
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 10
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 10
+uk_gold       = 0
+flags         = "Beast", "NoBuild", "Unique"
+targets       = "Burrowing"
+roles         = ""
+helptext      = _("\
+The Rukh is a beast spoken of only in legend.\
+ It is said that this monster is nearly unkillable,\
+ with wingbeats that can knock a roc clean out of the sky.\
+ Its very presence is enough to cause global windstorms, and\
+ its bulk is so great that its wings cause tornadoes when it\
+ flies through the skies. It is a beast that bows to no man,\
+ for only the gods can control its anger.\
+")
+
+[unit_cherufe]
+name          = _("Cherufe")
+class         = "Land"
+tech_req      = "None"
+obsolete_by   = "None"
+graphic       = "u.dragoons"
+graphic_alt   = "u.generic"
+sound_move    = "m_dragoons"
+sound_move_alt = "m_generic"
+sound_fight   = "f_dragoons"
+sound_fight_alt = "f_generic"
+build_cost    = 0
+pop_cost      = 0
+attack        = 90
+defense       = 30
+hitpoints     = 100
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 10
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 10
+uk_gold       = 0
+flags         = "Beast", "NoBuild", "Unique", "IgTer"
+targets       = "Air", "Flier", "Burrowing", "Helicopter"
+roles         = ""
+helptext      = _("\
+The Cherufe is a beast spoken of only in legend.\
+ It is said that this monster is nearly unkillable,\
+ with a flaming breath so hot that even dragons will burn.\
+ Its very presence is enough to cause global heat waves, and\
+ its skin is so hot that fires follow wherever it goes.\
+ It is a beast that bows to no man, for only the gods can\
+ control its anger.\
+")
+
 ; Add nothing below this line.

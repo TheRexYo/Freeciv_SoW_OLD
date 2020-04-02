@@ -24,14 +24,14 @@ leaders = {
 }
 
 ruler_titles = {
- "government",      "male_title",           "female_title"
- "Anarchy",         _("Kt'l %s"),      _("?female:Kt'l %s")
- "Despotism",       _("Kt'l %s"),         _("Kt'l %s")
- "Fundamentalism",  _("Kt'l %s"),         _("?female:Kt'l %s")
+ "government",      "male_title", "female_title"
+ "Anarchy",         _("Kt'l %s"), _("?female:Kt'l %s")
+ "Despotism",       _("Kt'l %s"), _("Kt'l %s")
+ "Fundamentalism",  _("Kt'l %s"), _("?female:Kt'l %s")
  "Republic",        _("Kt'l %s"), _("Kt'l %s")
 }
 
-flag="england"
+flag="kth"
 flag_alt = "united_kingdom"
 style = "tropical"
 

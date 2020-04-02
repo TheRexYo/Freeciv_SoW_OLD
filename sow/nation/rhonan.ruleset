@@ -48,4 +48,4 @@ cities =
 
 trait_expansionist = 75
 trait_trader       = 75
-trait_aggressive   = 50
+trait_aggressive   = 75

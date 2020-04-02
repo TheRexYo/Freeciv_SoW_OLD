@@ -304,6 +304,32 @@ With a Barracks, each new land unit built in a city will\
  restored.\
 ")
 
+[building_garrison]
+name		= _("Garrison")
+genus		= "Improvement"
+reqs	=
+    { "type", "name", "range"
+    }
+graphic	= "b.barracks_i"
+graphic_alt	= "-"
+obsolete_by	=
+    { "type", "name", "range"
+      "Tech", "Gunpowder", "Player"
+    }
+build_cost	= 30
+upkeep		= 1
+sabotage	= 100
+sound		= "b_barracks_i"
+sound_alt	= "b_generic"
+; /* xgettext:no-c-format */
+helptext	= _("\
+With a Garrison, cities will automatically\
+ inspire partisans to retake themselves if\
+ captured.\
+")
+
+;TODO: Add Garrisons II and III, which provide an increased partisan effect.
+
 [building_cathedral]
 name		= _("Cathedral")
 genus		= "Improvement"

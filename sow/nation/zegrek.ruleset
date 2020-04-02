@@ -4,7 +4,7 @@ name=_("Zegrek")
 plural=_("?plural:Zegreks")
 groups="Ancient", "Erath", "Core"
 legend=_("United, the Zegrek city-states were one of the most powerful nations to ever exist.\
-Their military advances were so great they could best any foe in straight combat. Though each\
+ Their military advances were so great they could best any foe in straight combat. Though each\
  mini-nation was small, together, they could defeat anything.\
 \n* Can create 'Zegrek Garrison' improvement, allowing the city to inspire Partisan units.\
 \n* Can build the unique 'Zegrek Phalanx' unit, which possesses increased defense.\

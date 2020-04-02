@@ -17,8 +17,7 @@ legend=_("Long ago, all of man lived as part of a single, unified\
  collapsed.\
 \n* No anarchy period after government change.\
 \n* When this nation's cities are captured,\
- they inspire partisans, provided the requirements for\
- the 'Partisan' unit are met.\
+ they inspire partisans.\
 ")
 leaders = {
  "name",                        "sex"
